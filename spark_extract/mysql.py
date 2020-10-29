@@ -12,7 +12,7 @@ class MySQL(object):
  
     def __execute(self, query, parameters=[]):
         try:
-            with self.connection.cursor() as cursor:
+            with self.connection.cursor(pymysql.cursors.DictCursor) as cursor:
                 cursor.execute(query, parameters)
                 return cursor
         except pymysql.Error as e:

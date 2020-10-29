@@ -84,6 +84,8 @@ store/#/others
 插入应用信息，拿到应用ID  
 插入应用与截图关联信息  
 
+应用已经下载好了，重新下载需要删除json目录下的文件
+
 # 数据表创建
 应用信息表、应用截图表、应用分类表  
 ```sql
@@ -107,7 +109,8 @@ CREATE TABLE `spark_appinfo` (
 	`created_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
 	`updated_at` TIMESTAMP NULL DEFAULT NULL COMMENT '最近一次修改时间',
   PRIMARY KEY (`id`),
-  INDEX `category_id` (`category_id`)
+  INDEX `category_id` (`category_id`),
+  UNIQUE INDEX `pkgname` (`pkgname`)
 )
 COMMENT='应用信息表'
 COLLATE='utf8mb4_unicode_ci'
@@ -116,26 +119,16 @@ ENGINE=InnoDB;
 --- 应用截图表
 CREATE TABLE `spark_screenshot` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `appid` INT(11) NOT NULL,
   `url` VARCHAR(500) NOT NULL COMMENT '图片链接',
   `order` INT(11) NOT NULL DEFAULT '10000' COMMENT '排序',
 	`created_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  INDEX `appid` (`appid`)
 )
 COMMENT='应用截图表'
 COLLATE='utf8mb4_unicode_ci'
 ENGINE=InnoDB;
-
-
---- 应用应用与应用截图关联表
-CREATE TABLE `spark_app_screenshot` (
-  `appinfo_id` VARCHAR(500) NOT NULL COMMENT '应用ID',
-  `screenshot_id` INT(11) NOT NULL COMMENT '截图ID',
-  PRIMARY KEY `id` (`appinfo_id`, `screenshot_id`)
-)
-COMMENT='应用信息与应用截图关联表'
-COLLATE='utf8mb4_unicode_ci'
-ENGINE=InnoDB;
-
 
 --- 应用分类表
 CREATE TABLE `spark_category` (
@@ -150,3 +143,5 @@ COMMENT='应用分类表'
 COLLATE='utf8mb4_unicode_ci'
 ENGINE=InnoDB;
 ```
+
+# 应用API编写
