@@ -14,16 +14,16 @@ db = MySQL("localhost", "root", "root", "spark_store")
 # 应用分类
 cates = {
     "network": "网络应用",  
-    "communication": "社交沟通",
+    "chat": "社交沟通",
     "music": "音乐欣赏",
-    "videos": "视频播放",
-    "graphics": "图形图像",
+    "video": "视频播放",
+    "image_graphics": "图形图像",
     "games": "游戏娱乐",
     "office": "办公学习",
-    "translate": "阅读翻译",
+    "reading": "阅读翻译",
     "development": "编程开发",
     "tools": "系统工具",
-    "beautify": "主题美化",
+    "themes": "主题美化",
     "others": "其他应用",
 } 
 
@@ -85,6 +85,8 @@ def extract_appinfo():
     files = os.listdir(json_dir)
     os.chdir(json_dir)
     for filename in files:
+        if filename == ".gitignore":
+            continue
         with open(filename, "r", encoding="utf-8") as f:
             data = json.load(f) # 单个分类的所有应用数据
             cate_name =  Path(filename).stem
@@ -135,7 +137,9 @@ def insert_appinfo(item, cate_name):
         )
     else:
         path = ""
-    icon = item.get("icons", "")
+    icon = "https://cdn.jsdelivr.net/gh/Jerrywang959/jsonpng/store/{cate_name}/{pkgname}/icon.png" \
+        .format(cate_name=cate_name, pkgname=item["Pkgname"])
+    # icon = item.get("icons", icon)
     tags = item.get("Tags", "")
     values = (
         cate_id, item["Name"], item["Pkgname"], item["Version"],

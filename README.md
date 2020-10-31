@@ -57,6 +57,7 @@ store/#/others
 应用信息下载地址 https://json.jerrywang.top/store/development/code/app.json 
 应用图标 https://cdn.jsdelivr.net/gh/Jerrywang959/jsonpng/store/development/code/icon.png
 应用下载地址 http://sucdn.jerrywang.top/store/development/code/code_1.49.0-1599744551_amd64.deb
+// 图标的分类与应用json的分类是不一致的=_= 坑啊 
 ```
 
 单个应用信息json示例
@@ -147,3 +148,5 @@ ENGINE=InnoDB;
 
 # 应用API编写
 使用 Python FastAPI 来写接口    
+
+`.env` 配置文件只支持ASCII字符，不能有中文存在。  
