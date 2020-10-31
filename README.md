@@ -157,3 +157,20 @@ ENGINE=InnoDB;
 * `/appinfo/search?keyword=微信` 关键字搜索APP信息   
 * `/appinfo/name?pkgname=com.qq.weixin.dcs` 根据包明获取APP信息
 * `/appinfo/list?cate_name=chat&page=1&limit=10` 获取应用列表信息
+
+# 运行部署说明
+修改 `spark_extract` 下的 extract.py 文件的数据库配置：
+```python
+# 四个参数分别为：ip地址，数据库用户名，数据库密码，数据库名
+db = MySQL("localhost", "root", "root", "spark_store")    
+```
+然后运行 extract.py 即可抓取星火商店应用数据插入到 spark_store 数据库中。     
+
+复制 `api_server` 目录下的 `.env.example` 文件为 `.env` 文件，修改其数据库配置
+```ini
+SQLALCHEMY_DATABASE_URI=mysql+pymysql://root:root@localhost/spark_store
+```
+然后在 api_server 目录下运行：
+```sh
+$ uvicorn main:app --host 127.0.0.1 --port 8000
+```
