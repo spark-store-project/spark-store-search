@@ -150,3 +150,10 @@ ENGINE=InnoDB;
 使用 Python FastAPI 来写接口    
 
 `.env` 配置文件只支持ASCII字符，不能有中文存在。  
+
+应用API目录为 `api_server`
+
+几个API说明
+* `/appinfo/search?keyword=微信` 关键字搜索APP信息   
+* `/appinfo/name?pkgname=com.qq.weixin.dcs` 根据包明获取APP信息
+* `/appinfo/list?cate_name=chat&page=1&limit=10` 获取应用列表信息
