@@ -8,7 +8,7 @@
 数据库可能对并发的能力比较弱，要上缓存，或者限流。  
 
 抓取好数据写入数据表后，然后投稿端添加新的应用，都要写入数据库。    
-用flask写API供客户端使用，一个是应用信息查询，一个是应用信息录入。      
+用fastapi写API供客户端使用，一个是应用信息查询，一个是应用信息录入。      
 
 几个服务器路线：
 ```js
@@ -155,7 +155,7 @@ ENGINE=InnoDB;
 
 几个API说明
 * `/appinfo/search?keyword=微信` 关键字搜索APP信息   
-* `/appinfo/name?pkgname=com.qq.weixin.dcs` 根据包明获取APP信息
+* `/appinfo/name?pkgname=com.qq.weixin.dcs` 根据包名获取APP信息
 * `/appinfo/list?cate_name=chat&page=1&limit=10` 获取应用列表信息
 
 # 运行部署说明
