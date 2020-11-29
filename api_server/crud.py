@@ -27,19 +27,21 @@ def process_cate_pair(cates: List[models.Category]):
     return data
 
 #######################################################
-# 
+# 应用搜索后端
 #######################################################
 
 def search_app(db: Session, keyword: str):
     search = "%{}%".format(keyword)
     apps = db.query(models.Appinfo) \
         .options(joinedload(models.Appinfo.screenshots)) \
+        .options(joinedload(models.Appinfo.category)) \
         .filter(models.Appinfo.name.like(search)) \
         .order_by(models.Appinfo.order) \
         .all()
     res = []
     for app in apps:
         app = process_app_screenshot(app)
+        app.category_slug = app.category.slug
         res.append(app)
     return res 
 

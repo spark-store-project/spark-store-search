@@ -21,6 +21,7 @@ class AppItem(BaseModel):
     tags: str 
     icon: str 
     imgs: List[str] = []
+    category_slug: str 
 
     class Config:
         orm_mode = True
