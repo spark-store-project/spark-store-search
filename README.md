@@ -174,3 +174,10 @@ SQLALCHEMY_DATABASE_URI=mysql+pymysql://root:root@localhost/spark_store
 ```sh
 $ uvicorn main:app --host 127.0.0.1 --port 8000
 ```
+
+# 客户端搜索功能开发说明
+spk://store/reading/listera-novelreader
+下载的URL为： QUrl("spk://store/video/com.obsproject.studio")
+url.path() ： "/video/com.obsproject.studio"
+
+能够拿到应用的包名和分类名称，就可以直接调用 `Widget::openUrl(QUrl u)`    
