@@ -51,6 +51,9 @@ class Appinfo(BaseModel):
 
     screenshots = relationship("Screenshot", backref='app')
     
+    def __str__(self):
+        return "Appinfo id=%1 name=%2".format(self.id, self.name) 
+    
 class Category(BaseModel):
     __tablename__ = "spark_category"
     id = Column(Integer, primary_key=True, index=True)
@@ -58,6 +61,9 @@ class Category(BaseModel):
     name = Column(String)
 
     apps = relationship('Appinfo', backref='category')
+
+    def __str__(self):
+        return "Category id=%1 name=%2".format(self.id, self.name) 
 
 class Screenshot(BaseModel):
     __tablename__ = "spark_screenshot"

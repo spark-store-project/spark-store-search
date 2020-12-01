@@ -41,7 +41,7 @@ def search_app(db: Session, keyword: str):
     res = []
     for app in apps:
         app = process_app_screenshot(app)
-        app.category_slug = app.category.slug
+        app.category_slug = app.category.slug if app.category else  ""
         res.append(app)
     return res 
 
