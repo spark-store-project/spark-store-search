@@ -101,10 +101,10 @@ CREATE TABLE `spark_appinfo` (
   `author` VARCHAR(255) NOT NULL DEFAULT '未知' COMMENT '开发者',
   `contributor` VARCHAR(255) NOT NULL DEFAULT '未知' COMMENT '投稿人',
   `website` VARCHAR(255) NOT NULL DEFAULT '' COMMENT '应用官网',
-  `path` VARCHAR(500) NOT NULL COMMENT '文件下载路径',
+  `path` VARCHAR(255) NOT NULL COMMENT '文件下载路径',
   `size` VARCHAR(50) NOT NULL DEFAULT '' COMMENT '大小',
-  `icon` VARCHAR(500) NOT NULL DEFAULT '' COMMENT '图标',
-  `tags` VARCHAR(500) NOT NULL DEFAULT '' COMMENT '标签',
+  `icon` VARCHAR(255) NOT NULL DEFAULT '' COMMENT '图标',
+  `tags` VARCHAR(255) NOT NULL DEFAULT '' COMMENT '标签',
   `more` TEXT COMMENT '详细及描述',
   `app_status` TINYINT(1) UNSIGNED NOT NULL DEFAULT '1' COMMENT '应用状态; 0: 下架, 1:正常, 2:未审核',
   `order` INT(11) NOT NULL DEFAULT '10000' COMMENT '排序',
@@ -115,21 +115,21 @@ CREATE TABLE `spark_appinfo` (
   UNIQUE INDEX `pkgname` (`pkgname`)
 )
 COMMENT='应用信息表'
-COLLATE='utf8mb4_unicode_ci'
+COLLATE='utf8_unicode_ci'
 ENGINE=InnoDB;
 
 --- 应用截图表
 CREATE TABLE `spark_screenshot` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `appid` INT(11) NOT NULL,
-  `url` VARCHAR(500) NOT NULL COMMENT '图片链接',
+  `url` VARCHAR(255) NOT NULL COMMENT '图片链接',
   `order` INT(11) NOT NULL DEFAULT '10000' COMMENT '排序',
 	`created_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   PRIMARY KEY (`id`),
   INDEX `appid` (`appid`)
 )
 COMMENT='应用截图表'
-COLLATE='utf8mb4_unicode_ci'
+COLLATE='utf8_unicode_ci'
 ENGINE=InnoDB;
 
 --- 应用分类表
@@ -142,9 +142,10 @@ CREATE TABLE `spark_category` (
   UNIQUE KEY `slug` (`slug`)
 )
 COMMENT='应用分类表'
-COLLATE='utf8mb4_unicode_ci'
+COLLATE='utf8_unicode_ci'
 ENGINE=InnoDB;
 ```
+=_= 服务求Mysql 版本太低，VARCHAR 不支持255了
 
 # 应用API编写
 使用 Python FastAPI 来写接口    

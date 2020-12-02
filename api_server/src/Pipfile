@@ -9,6 +9,8 @@ verify_ssl = false
 fastapi = "*"
 uvicorn = "*"
 sqlalchemy = "*"
+python-dotenv = "*"
+pymysql = "*"
 
 [requires]
 python_version = "3.8"
