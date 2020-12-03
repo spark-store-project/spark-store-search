@@ -66,14 +66,14 @@ def download_json():
     for key, url in new_urls.items():
         print("开始下载：{0} : {1}".format(key, url))
         filename = "{0}.json".format(key)
-        file_path = os.path.join(json_dir, filename)    
-        if not os.path.exists(file_path):
-            response = requests.get(url)
-            content = response.content.decode("utf-8")
-            with open(filename, "w", encoding="utf-8") as f:
-                f.write(content)
-        else:
-            print("文件{0}已存在，跳过".format(filename))
+        # file_path = os.path.join(json_dir, filename)    
+        # if not os.path.exists(file_path):
+        response = requests.get(url)
+        content = response.content.decode("utf-8")
+        with open(filename, "w", encoding="utf-8") as f:
+            f.write(content)
+        # else:
+        #     print("文件{0}已存在，跳过".format(filename))
                 
 def extract_appinfo():
     """
