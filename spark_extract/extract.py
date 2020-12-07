@@ -161,9 +161,20 @@ def insert_appinfo(item, cate_name):
             db.execute("INSERT INTO `spark_screenshot` (`appid`, `url`) VALUES (%s, %s)", (row["id"], img))
     
 
+def clear_data():
+    """
+    清除搜索数据库的数据，用于更新
+    每天凌晨2~3点进行更新
+    """
+    db.execute("DELETE FROM spark_appinfo WHERE 1")
+    db.execute("DELETE FROM spark_category WHERE 1")
+    db.execute("DELETE FROM spark_screenshot WHERE 1")
 
     
 if __name__ == "__main__":
+    # 清除数据 
+    clear_data()
+
     # 插入分类表数据
     create_category()
     
