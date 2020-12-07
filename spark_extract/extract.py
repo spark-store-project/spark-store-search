@@ -7,9 +7,10 @@ import requests
 import json
 from pathlib import Path
 import sys
+import settings
 
 # 测试MySQL
-db = MySQL("localhost", "root", "root", "spark_store")
+db = MySQL(settings.DATABASE_HOST, settings.DATABASE_USERNAME, settings.DATABASE_PASSWORD, settings.DATABASE_NAME)
 
 # 应用分类
 cates = {

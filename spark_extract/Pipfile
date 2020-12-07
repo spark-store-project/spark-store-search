@@ -8,6 +8,7 @@ verify_ssl = false
 [packages]
 pymysql = "*"
 requests = "*"
+python-dotenv = "*"
 
 [requires]
 python_version = "3.8"
