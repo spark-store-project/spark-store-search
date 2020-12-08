@@ -3,3 +3,6 @@ __pycache__/
 Pipfile.lock
 
 .env
+.htaccess
+.user.ini
+.well-known/
