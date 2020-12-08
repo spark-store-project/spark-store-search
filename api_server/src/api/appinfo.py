@@ -24,7 +24,7 @@ def search(keyword: str, db: Session = Depends(models.get_db)):
 @router.get("/appinfo/name", response_model=schemas.AppItem)
 def appinfo(pkgname: str, db: Session = Depends(models.get_db)):
     """
-    根据关键字搜索应用
+    根据报名获取应用
     """
     if pkgname.strip() == "":
         raise HTTPException(status_code=418, detail="应用包名不能为空！")
