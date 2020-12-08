@@ -2,6 +2,7 @@
 #-*- coding: utf-8 -*-
 
 from sqlalchemy.orm import Session, joinedload
+from sqlalchemy import or_
 from typing import List
 
 import models, schemas
@@ -35,7 +36,7 @@ def search_app(db: Session, keyword: str):
     apps = db.query(models.Appinfo) \
         .options(joinedload(models.Appinfo.screenshots)) \
         .options(joinedload(models.Appinfo.category)) \
-        .filter(models.Appinfo.name.like(search)) \
+        .filter(or_(models.Appinfo.name.like(search), models.Appinfo.pkgname.like(search)) ) \
         .order_by(models.Appinfo.order) \
         .all()
     res = []
