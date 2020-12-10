@@ -11,7 +11,7 @@ from sqlalchemy.schema import ForeignKey
 from sqlalchemy.dialects.mysql import TINYINT
 import settings
 
-engine = create_engine(settings.SQLALCHEMY_DATABASE_URI)
+engine = create_engine(settings.SQLALCHEMY_DATABASE_URI, pool_size=300, max_overflow=0)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 BaseModel = declarative_base()
 
