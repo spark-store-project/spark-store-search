@@ -6,7 +6,7 @@ import pymysql.cursors
 class MySQL(object):
     def __init__(self, host, user, password, database):
         try:
-            self.connection = pymysql.connect(host, user, password, database)
+            self.connection = pymysql.connect(host=host, user=user, password=password, database=database)
         except pymysql.Error as e:
             print("Init error %d: %s" % (e.args[0], e.args[1]))
  
