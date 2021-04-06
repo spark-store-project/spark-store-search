@@ -52,6 +52,7 @@ def get_app_item(db: Session, pkgname: str):
         .filter(models.Appinfo.pkgname == pkgname) \
         .first()
     app = process_app_screenshot(app)
+    app.category_slug = app.category.slug if app.category else  ""
     return app
 
 def get_app_list(db: Session, skip: int, limit: int = 20, cate_id: int = 0):
@@ -70,6 +71,7 @@ def get_app_list(db: Session, skip: int, limit: int = 20, cate_id: int = 0):
     res = []
     for app in apps:
         app = process_app_screenshot(app)
+        app.category_slug = app.category.slug if app.category else  ""
         res.append(app)
 
     return res 
