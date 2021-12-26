@@ -40,21 +40,21 @@ store/#/themes
 store/#/others
 
 // json 文件地址
-网络应用 https://json.jerrywang.top/store/network/applist.json
-社交沟通 https://json.jerrywang.top/store/chat/applist.json
-音乐欣赏 https://json.jerrywang.top/store/music/applist.json
-视频播放 https://json.jerrywang.top/store/video/applist.json
-图形图像 https://json.jerrywang.top/store/image_graphics/applist.json
-游戏娱乐 https://json.jerrywang.top/store/games/applist.json
-办公学习 https://json.jerrywang.top/store/office/applist.json
-阅读翻译 https://json.jerrywang.top/store/reading/applist.json
-编程开发 https://json.jerrywang.top/store/development/applist.json
-系统工具 https://json.jerrywang.top/store/tools/applist.json
-主题美化 https://json.jerrywang.top/store/themes/applist.json
-其他应用 https://json.jerrywang.top/store/others/applist.json
+网络应用 https://d.store.deepinos.org.cn/store/network/applist.json
+社交沟通 https://d.store.deepinos.org.cn/store/chat/applist.json
+音乐欣赏 https://d.store.deepinos.org.cn/store/music/applist.json
+视频播放 https://d.store.deepinos.org.cn/store/video/applist.json
+图形图像 https://d.store.deepinos.org.cn/store/image_graphics/applist.json
+游戏娱乐 https://d.store.deepinos.org.cn/store/games/applist.json
+办公学习 https://d.store.deepinos.org.cn/store/office/applist.json
+阅读翻译 https://d.store.deepinos.org.cn/store/reading/applist.json
+编程开发 https://d.store.deepinos.org.cn/store/development/applist.json
+系统工具 https://d.store.deepinos.org.cn/store/tools/applist.json
+主题美化 https://d.store.deepinos.org.cn/store/themes/applist.json
+其他应用 https://d.store.deepinos.org.cn/store/others/applist.json
 
 // 单个应用分析
-应用信息下载地址 https://json.jerrywang.top/store/development/code/app.json 
+应用信息下载地址 https://d.store.deepinos.org.cn/store/development/code/app.json 
 应用图标 https://cdn.jsdelivr.net/gh/Jerrywang959/jsonpng/store/development/code/icon.png
 应用下载地址 http://sucdn.jerrywang.top/store/development/code/code_1.49.0-1599744551_amd64.deb
 // 图标的分类与应用json的分类是不一致的=_= 坑啊 

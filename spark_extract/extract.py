@@ -46,18 +46,18 @@ def download_json():
     下载应用信息json文件
     """
     urls = [
-        "https://json.jerrywang.top/store/network/applist.json",
-        "https://json.jerrywang.top/store/chat/applist.json",
-        "https://json.jerrywang.top/store/music/applist.json",
-        "https://json.jerrywang.top/store/video/applist.json",
-        "https://json.jerrywang.top/store/image_graphics/applist.json",
-        "https://json.jerrywang.top/store/games/applist.json",
-        "https://json.jerrywang.top/store/office/applist.json",
-        "https://json.jerrywang.top/store/reading/applist.json",
-        "https://json.jerrywang.top/store/development/applist.json",
-        "https://json.jerrywang.top/store/tools/applist.json",
-        "https://json.jerrywang.top/store/themes/applist.json",
-        "https://json.jerrywang.top/store/others/applist.json",
+        "https://d.store.deepinos.org.cn/store/network/applist.json",
+        "https://d.store.deepinos.org.cn/store/chat/applist.json",
+        "https://d.store.deepinos.org.cn/store/music/applist.json",
+        "https://d.store.deepinos.org.cn/store/video/applist.json",
+        "https://d.store.deepinos.org.cn/store/image_graphics/applist.json",
+        "https://d.store.deepinos.org.cn/store/games/applist.json",
+        "https://d.store.deepinos.org.cn/store/office/applist.json",
+        "https://d.store.deepinos.org.cn/store/reading/applist.json",
+        "https://d.store.deepinos.org.cn/store/development/applist.json",
+        "https://d.store.deepinos.org.cn/store/tools/applist.json",
+        "https://d.store.deepinos.org.cn/store/themes/applist.json",
+        "https://d.store.deepinos.org.cn/store/others/applist.json",
     ]
     new_urls = dict(zip(cates.keys(), urls))
     
