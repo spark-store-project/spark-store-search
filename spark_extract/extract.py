@@ -138,7 +138,7 @@ def insert_appinfo(item, cate_name):
         )
     else:
         path = ""
-    icon = "https://cdn.jsdelivr.net/gh/Jerrywang959/jsonpng/store/{cate_name}/{pkgname}/icon.png" \
+    icon = "https://d.store.deepinos.org.cn/store/{cate_name}/{pkgname}/icon.png" \
         .format(cate_name=cate_name, pkgname=item["Pkgname"])
     # icon = item.get("icons", icon)
     tags = item.get("Tags", "")
